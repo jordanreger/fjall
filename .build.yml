@@ -1,0 +1,11 @@
+image: alpine/latest
+secrets:
+  - d8fbe68d-bbfb-4287-8e90-606bbc607c8a
+sources:
+  - https://git.sr.ht/~jordanreger/fjall
+tasks:
+  - mirror-to-github: |
+    cd fjall
+    git remote add github git@github.com:jordanreger/fjall.git
+    ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
+    git push github main
